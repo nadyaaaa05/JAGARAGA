@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian Kendaraan</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F6FA;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50, #82ccdd);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar .back-button {
+            background-color: #34495e;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar .back-button:hover {
+            background-color: #1abc9c;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a.active,
+        .sidebar a:hover {
+            background-color: #1abc9c;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            overflow-y: auto;
+            border-radius: 20px 0 0 20px;
+            box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            width: 65%;
+            padding: 15px;
+            border: 1px solid #DDD;
+            border-radius: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+
+        .location {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .location span {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-button,
+        .category-button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .filter-button {
+            background: #1ABC9C;
+            color: white;
+        }
+
+        .filter-button:hover {
+            background: #16A085;
+            transform: scale(1.05);
+        }
+
+        .category-button {
+            background: #F4F6FA;
+            color: #333;
+            border: 1px solid #DDD;
+        }
+
+        .category-button.active {
+            background: #1ABC9C;
+            color: white;
+            border: none;
+        }
+
+        .category-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Vehicle List */
+        .vehicle-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Vehicle Item */
+        .vehicle-item {
+            display: flex;
+            gap: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .vehicle-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .vehicle-image {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .vehicle-info {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .vehicle-info h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .vehicle-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .vehicle-info .price {
+            font-size: 16px;
+            color: #1ABC9C;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="back-button" onclick="location.href='pesan-kendaraan.html'">&larr; Kembali</button>
+            <a href="#" class="active">Pesan Kendaraan</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <input type="text" placeholder="Cari kendaraan di sekitar" class="search-bar">
+                <div class="location">
+                    <span>BANDUNG</span>
+                    <span>20 Juni - 21 Juni</span>
+                </div>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <button class="filter-button" onclick="filterCategory('semua')">Semua</button>
+                <button class="category-button" onclick="filterCategory('mobil')">Mobil</button>
+                <button class="category-button" onclick="filterCategory('motor')">Motor</button>
+            </div>
+
+            <!-- Vehicle List -->
+            <div class="vehicle-list" id="vehicle-list">
+                <div class="vehicle-item">
+                    <img src="asset/mobil 3.jpg" alt="Mobil 1" class="vehicle-image">
+                    <div class="vehicle-info">
+                        <h3>Mobil 1</h3>
+                        <p>Bandung</p>
+                        <p class="price">Rp400.000/hari</p>
+                    </div>
+                    
+                </div>
+                <div class="vehicle-item">
+                    <img src="asset/motor 3.jpg" alt="Motor 1" class="vehicle-image">
+                    <div class="vehicle-info">
+                        <h3>Motor 1</h3>
+                        <p>Bandung</p>
+                        <p class="price">Rp100.000/hari</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterCategory(category) {
+            const allVehicles = document.querySelectorAll('.vehicle-item');
+            allVehicles.forEach(vehicle => {
+                const isMotor = vehicle.querySelector('h3').textContent.toLowerCase().includes('motor');
+                const isMobil = vehicle.querySelector('h3').textContent.toLowerCase().includes('mobil');
+                
+                if (category === 'semua') {
+                    vehicle.style.display = 'flex';
+                } else if (category === 'motor' && isMotor) {
+                    vehicle.style.display = 'flex';
+                } else if (category === 'mobil' && isMobil) {
+                    vehicle.style.display = 'flex';
+                } else {
+                    vehicle.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

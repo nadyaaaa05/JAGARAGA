@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Kendaraan</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background-color: #ffffff;
+      padding: 20px 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      border-bottom: 3px solid #3498db;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .header a {
+      text-decoration: none;
+      color: #3498db;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .header a:hover {
+      color: #2980b9;
+    }
+
+    /* Detail Section */
+    .detail-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .detail-section:hover {
+      transform: scale(1.02);
+    }
+
+    .vehicle-image {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      background-color: #ecf0f1;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .vehicle-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .vehicle-info {
+      flex: 1.5;
+      padding: 20px;
+    }
+
+    .vehicle-info h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: #2980b9;
+    }
+
+    .vehicle-info p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+
+    .vehicle-info .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #27ae60;
+      margin-top: 20px;
+    }
+
+    .vehicle-info ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+      color: #7f8c8d;
+    }
+
+    .vehicle-info li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .btn-book {
+      display: inline-block;
+      background-color: #e67e22;
+      color: white;
+      padding: 14px 30px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 18px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .btn-book:hover {
+      background-color: #d35400;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .footer a {
+      color: #3498db;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .detail-section {
+        flex-direction: column;
+      }
+
+      .vehicle-info {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Rental Kendaraan</h1>
+    <a href="beranda.html">Kembali ke Beranda</a>
+  </div>
+
+  <!-- Detail Section -->
+  <div class="detail-section">
+    <div class="vehicle-image">
+      <img src="mobil 3.jpg" alt="Toyota Avanza">
+    </div>
+    <div class="vehicle-info">
+      <h2>TOYOTA AVANZA 2022</h2>
+      <p><strong>Lokasi:</strong> Buah Batu, Bandung</p>
+      <p><strong>Deskripsi:</strong> Toyota Avanza 2022, kendaraan yang ideal untuk perjalanan keluarga atau perjalanan bisnis. Dilengkapi dengan fitur-fitur modern dan kenyamanan yang luar biasa, cocok untuk perjalanan jauh maupun dalam kota. Hemat bahan bakar dan mudah dikendarai.</p>
+      <p><strong>Spesifikasi:</strong></p>
+      <ul>
+        <li>Mesin: 1.3L</li>
+        <li>Transmisi: Manual</li>
+        <li>Penumpang: 7 orang</li>
+        <li>AC, Radio, dan Bluetooth</li>
+      </ul>
+      <p class="price">Harga Sewa: Rp 500.000/hari</p>
+      <a href="pemesanan.html" class="btn-book">Pesan Sekarang</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2024 Rental Kendaraan | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </div>
+
+</body>
+</html>

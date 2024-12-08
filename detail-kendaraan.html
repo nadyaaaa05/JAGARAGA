@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Kendaraan</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4F6FA;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .detail-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .detail-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .detail-content {
+            padding: 20px;
+        }
+
+        .detail-content h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .detail-content p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .price {
+            font-size: 20px;
+            color: #1ABC9C;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .button-container button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .button-container .rent-button {
+            background: #1ABC9C;
+            color: white;
+        }
+
+        .button-container .rent-button:hover {
+            background: #16A085;
+        }
+
+        .button-container .back-button {
+            background: #ccc;
+            color: #333;
+        }
+
+        .button-container .back-button:hover {
+            background: #bbb;
+        }
+
+        @media screen and (max-width: 768px) {
+            .detail-card img {
+                height: 200px;
+            }
+
+            .detail-content h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Detail Card -->
+        <div class="detail-card">
+            <img src="asset/mobil1.jpg" alt="Mobil 1">
+            <div class="detail-content">
+                <h1>Mobil 1</h1>
+                <p>Lokasi: Bandung</p>
+                <p>Deskripsi: Kendaraan ini cocok untuk perjalanan keluarga dengan kapasitas besar.</p>
+                <p class="price">Rp400.000/hari</p>
+                <div class="button-container">
+                    <button class="rent-button">Sewa Sekarang</button>
+                    <button class="back-button" onclick="window.history.back();">Kembali</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
